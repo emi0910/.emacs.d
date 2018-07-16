@@ -83,11 +83,6 @@
 (require 'volatile-highlights)
 (volatile-highlights-mode t)
 
-;; point-undo
-(require 'point-undo)
-(define-key global-map (kbd "M-[") 'point-undo)
-(define-key global-map (kbd "M-]") 'point-redo)
-
 ;; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
@@ -116,6 +111,18 @@
 ;; load themes
 (load-theme 'solarized t)
 
+;; rainbow-delimiters
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;; sequential-command
+(require 'sequential-command-config)
+(global-set-key (kbd "C-a") 'seq-home)
+(global-set-key (kbd "C-e") 'seq-end)
+(global-set-key "\M-u" 'seq-upcase-backward-word)
+(global-set-key "\M-c" 'seq-capitalize-backward-word)
+(global-set-key "\M-l" 'seq-downcase-backward-word)
+
 ;; woman
 (setq woman-manpath '("/usr/local/jman/share/man/ja_JP.UTF-8/"
                       "/opt/local/share/man"
@@ -133,6 +140,12 @@
 (defalias 'exit 'save-buffers-kill-emacs)
 
 (add-to-load-path "elisp" "conf" "public_repos")
+
+;; point-undo
+(load "point-undo")
+(require 'point-undo)
+(define-key global-map (kbd "M-[") 'point-undo)
+(define-key global-map (kbd "M-]") 'point-redo)
 
 ;; for mysettings
 (load "setting")

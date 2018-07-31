@@ -20,7 +20,11 @@
 (depends-on "auto-complete")
 (depends-on "fuzzy")
 (depends-on "region-bindings-mode")
-(depends-on "rust-mode")
 (depends-on "color-theme-solarized")
 (depends-on "rainbow-delimiters")
 (depends-on "sequential-command")
+
+;; XXX-mode
+(depends-on "rust-mode")
+(depends-on "dockerfile-mode")
+(depends-on "kotlin-mode")
